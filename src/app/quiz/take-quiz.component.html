@@ -1,0 +1,11 @@
+    <h2>Take Quizes</h2>
+    <ul class="quizes">
+      <li *ngFor="let quiz of quizes" (click)="onSelect(quiz)"
+          [class.selected]="quiz === selectedQuiz">
+        <span class="badge">{{quiz.id}}</span>
+        <span>{{quiz.name}}</span>
+      </li>
+    </ul>
+    <div *ngIf="selectedQuiz">
+      <button (click)="gotoDetail()">Take</button>
+    </div>

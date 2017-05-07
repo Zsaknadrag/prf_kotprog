@@ -1,0 +1,30 @@
+<div *ngIf="quiz">
+  <h2>{{quiz.name}} details!</h2>
+  <div>
+    <label>id: </label>{{quiz.id}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="quiz.name" placeholder="name" />
+  </div>
+  <div>
+       <label>Questions </label> <input #questionName />
+      <button (click)="addq(quiz,questionName.value); questionName.value=''">Add</button>
+      <!--    <button (click)="add(quizName.value); quizName.value=''">Add</button> -->
+     <ul *ngFor="let question of quiz.questions">
+        <label>Question </label>
+        <input [(ngModel)]="question.name" placeholder="name"/>
+        <ul class="options">
+            <li *ngFor="let option of question.options">
+                <label>Option </label>
+                 <input [(ngModel)]="option.name" placeholder="name" />
+                 <input type="checkbox" [(ngModel)]="option.isAnswer" placeholder="isAnswer" (change)="onSelect(question, option);" />
+            </li>
+        </ul>
+        
+    </ul>
+
+  </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+  
+</div>

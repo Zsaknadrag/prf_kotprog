@@ -1,0 +1,18 @@
+    <h2>Set Quizes</h2>
+    <div>
+      <label>Quiz name:</label> <input #quizName />
+      <button (click)="add(quizName.value); quizName.value=''">Add</button>
+    </div>
+    <ul class="quizes">
+      <li *ngFor="let quiz of quizes" (click)="onSelect(quiz)"
+          [class.selected]="quiz === selectedQuiz">
+        <span class="badge">{{quiz.id}}</span>
+        <span>{{quiz.name}}</span>
+        
+        <button class="delete"
+          (click)="delete(quiz); $event.stopPropagation()">x</button>
+      </li>
+    </ul>
+    <div *ngIf="selectedQuiz">
+      <button (click)="gotoDetail()">Modify</button>
+    </div>
