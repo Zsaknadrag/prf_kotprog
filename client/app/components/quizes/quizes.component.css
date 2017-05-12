@@ -1,0 +1,10 @@
+table {
+  width: 100%;
+  border: 1px solid #000;
+}
+th.name, th.action {
+  width: 20%
+}
+th.id {
+  width: 30%; 
+}
