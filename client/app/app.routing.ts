@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent }   from './components/dashboard/dashboard.component';
 import { QuizesComponent }      from './components/quizes/quizes.component';
 import { QuizDetailComponent }  from './components/quizDetail/quiz-detail.component';
+import { NewQuestionComponent }  from './components/new-question/new-question.component';
 
 const appRoutes: Routes = [
   {
@@ -17,6 +18,10 @@ const appRoutes: Routes = [
   {
     path: 'detail/:id',
     component: QuizDetailComponent
+  },
+  {
+    path: 'new-question/:quizId',
+    component: NewQuestionComponent
   },
   {
     path: 'quizes',

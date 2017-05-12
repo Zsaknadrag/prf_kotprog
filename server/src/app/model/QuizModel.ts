@@ -3,17 +3,22 @@ import IQuestionModel = require('./interfaces/QuestionModel');
 
 class QuizModel {
 
-    private _quizModel: IQuizModel;
+  private _quizModel: IQuizModel;
 
-    constructor(quizModel: IQuizModel) {
-        this._quizModel = quizModel;
-    }
-    get name (): string {
-        return this._quizModel.name;
-    }
-    get questions (): string {
-        return this._quizModel.questions;
-    }
+  constructor(quizModel: IQuizModel) {
+    this._quizModel = quizModel;
+  }
+
+  get name(): string {
+    return this._quizModel.name;
+  }
+
+  get questions(): string {
+    return this._quizModel.questions;
+  }
+
 }
+
 Object.seal(QuizModel);
-export =  QuizModel;
+
+export = QuizModel;

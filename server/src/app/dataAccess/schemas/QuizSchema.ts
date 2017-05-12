@@ -1,27 +1,31 @@
 import DataAccess = require('../DataAccess');
 import IQuizModel = require("./../../model/interfaces/QuizModel");
 
-import QuestionSchema = require('./QuestionSchema');
-
 var mongoose = DataAccess.mongooseInstance;
 var mongooseConnection = DataAccess.mongooseConnection;
 
 class QuizSchema {
 
-    static get schema () {
-        var schema =  mongoose.Schema({
-            name : {
-                type: String,
-                required: true
-            },
-            questions: {
-                type: String,
-                required: true
-            }
-        });
+  static get schema() {
+    var schema = mongoose.Schema({
+      name: {
+        type: String,
+        required: true
+      },
+      questions: [{
+        text: String,
+        answers: [{
+          text: String,
+          correct: Boolean
+        }]
+      }]
+    });
 
-        return schema;
-    }
+    return schema;
+  }
+
 }
+
 var schema = mongooseConnection.model<IQuizModel>("Quizes", QuizSchema.schema);
-export = schema;""
+
+export = schema;

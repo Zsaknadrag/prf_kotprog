@@ -9,7 +9,8 @@ import {QuizService} from "../../services/quiz.service";
 
 @Component({
     selector: 'my-quiz-detail',
-    templateUrl: './app/components/quizDetail/quiz-detail.component.html'
+    templateUrl: './app/components/quizDetail/quiz-detail.component.html',
+    styleUrls: [ './app/components/quizDetail/quiz-detail.component.css' ]
 })
 
 export class QuizDetailComponent implements OnInit {

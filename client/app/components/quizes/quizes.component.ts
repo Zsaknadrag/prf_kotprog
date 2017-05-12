@@ -35,6 +35,10 @@ export class QuizesComponent implements OnInit {
         this.router.navigate(['/detail', 'new']);
     }
 
+    addQuestion(quiz: Quiz) {
+      this.router.navigate(['/new-question', quiz._id]);
+    }
+
     deleteQuiz(quiz: Quiz, event: any) {
         event.stopPropagation();
         this.quizService
