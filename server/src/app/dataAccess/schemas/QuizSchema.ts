@@ -16,7 +16,8 @@ class QuizSchema {
         text: String,
         answers: [{
           text: String,
-          correct: Boolean
+          correct: Boolean,
+          selected: Boolean
         }]
       }]
     });

@@ -1,7 +1,7 @@
 import express = require("express");
 import QuizBusiness = require("./../app/business/QuizBusiness");
 import IBaseController = require("./BaseController");
-import IQuizModel = require("./../app/model/interfaces/QuizModel");
+import IQuizModel = require("./../app/model/interfaces/IQuizModel");
 
 class QuizController implements IBaseController <QuizBusiness> {
 

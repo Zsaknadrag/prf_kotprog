@@ -41,4 +41,14 @@ export class NewQuestionComponent implements OnInit {
     });
   }
 
+  goBack() {
+        window.history.back();
+    }
+
+    onSelect(question: Question, answer: Answer) {
+      question.answers.forEach((x) => { 
+          if (x._id !== answer._id) x.correct = false;        
+    });
+
+}
 }

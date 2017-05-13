@@ -1,0 +1,22 @@
+<div *ngIf="quiz">
+  <h2>You are taking {{quiz.name}} quiz!</h2>
+  <div>
+       <label>Questions </label>
+       
+        <ul *ngFor="let question of quiz.questions ">
+            <label>{{question.text}} </label>
+            <ul>
+                <li *ngFor="let answer of question.answers; let i = index;">
+                        <label class = "answer" >{{answer.text}}</label>
+                        <input type="checkbox" [(ngModel)]="answer.selected" placeholder="selected" (change)="onSelect(question, answer);" />
+                </li>
+            </ul>
+        </ul> 
+ </div>
+
+  <button (click)="goBack()">Back</button>
+  <button (click)="initSelected()" > Delete Answers </button>
+   <button (click)="evaluate(quiz)" (change)= "showResult()" >Evaluate </button>
+   <div *ngIf="showres">
+   <h3> Results: {{points}} out of {{qnumber}}  </h3>
+</div>

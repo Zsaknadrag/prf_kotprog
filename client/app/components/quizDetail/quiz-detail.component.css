@@ -1,4 +1,10 @@
 .question {
   padding-top: 6px;
   margin-bottom: 20px;
+  width: 400px;
+}
+.answer{
+  padding-top: 3px;
+  margin-bottom: 5px;
+  width: 300px;
 }

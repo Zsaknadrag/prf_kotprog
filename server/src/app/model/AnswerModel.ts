@@ -16,6 +16,10 @@ class AnswerModel {
     return this._answerModel.correct;
   }
 
+  get selected(): boolean {
+    return this._answerModel.selected;
+  }
+
 }
 
 Object.seal(AnswerModel);

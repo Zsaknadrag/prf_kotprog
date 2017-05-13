@@ -1,0 +1,28 @@
+.answer {
+  height: 0.7em;
+  display: inline-block;
+  width: 6em;
+  margin: .5em 0;
+  color: #908E9E;
+}
+label {
+  display: inline-block;
+  width: 10em;
+  margin: .5em 0;
+  color: #607D8B;
+  font-weight: bold;
+}
+button {
+  margin-top: 20px;
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 5px;
+  border-radius: 2px;
+  cursor: pointer; cursor: hand;
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc; 
+  cursor: auto;
+}

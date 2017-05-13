@@ -1,0 +1,42 @@
+<h1>{{title}}</h1>
+<h2>Choose a Quiz to take!</h2>
+<div class="row">
+    <div class="col-md-12">
+        <div class="error" *ngIf="error">{{error}}</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="name">Name</th>
+                    <th class="name">Number of Questions</th>
+                    <th class="action">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let quiz of quizes" [class.active]="quiz === selectedQuiz" (click)="onSelect(quiz)">-->
+                <tr *ngFor="let quiz of quizes">
+                    <td>{{quiz.name}}</td>
+                    <td>{{quiz.questions.length}}</td>
+                    <td>
+                      <button class="btn btn-primary" (click)="gotoDetail(quiz)">Take</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--
+<div class="row">
+    <div class="col-md-12">
+        <div *ngIf="selectedQuiz">
+            <h2>
+                {{selectedQuiz.name | uppercase}} is my quiz!
+            </h2>
+            <button class="btn btn-primary" (click)="gotoDetail()">View Details</button>
+        </div>
+    </div>
+</div>
+-->

@@ -4,6 +4,8 @@ import { DashboardComponent }   from './components/dashboard/dashboard.component
 import { QuizesComponent }      from './components/quizes/quizes.component';
 import { QuizDetailComponent }  from './components/quizDetail/quiz-detail.component';
 import { NewQuestionComponent }  from './components/new-question/new-question.component';
+import { TakeQuizComponent }  from './components/takeQuiz/takequiz.component';
+import { ChooseQuizComponent }  from './components/choosequiz/choosequiz.component';
 
 const appRoutes: Routes = [
   {
@@ -26,7 +28,15 @@ const appRoutes: Routes = [
   {
     path: 'quizes',
     component: QuizesComponent
-  }
+  },
+  { 
+    path: 'takequiz/:id',
+    component: TakeQuizComponent, 
+  },
+  { 
+    path: 'choosequiz',
+    component: ChooseQuizComponent, 
+  },
 ];
 
 export const routing = RouterModule.forRoot(appRoutes, { useHash: true });

@@ -1,12 +1,10 @@
-/**
- * Created by Moiz.Kachwala on 02-06-2016.
- */
-
 import {Component, Input, OnInit} from '@angular/core';
 import {Quiz} from "../../models/quiz";
+import { Question } from '../../models/question';
+import { Answer } from '../../models/answer';
 import { ActivatedRoute, Params } from '@angular/router';
 import {QuizService} from "../../services/quiz.service";
-
+import { Router } from '@angular/router';
 @Component({
     selector: 'my-quiz-detail',
     templateUrl: './app/components/quizDetail/quiz-detail.component.html',
@@ -22,7 +20,8 @@ export class QuizDetailComponent implements OnInit {
 
     constructor(
         private quizService: QuizService,
-        private route: ActivatedRoute) {
+        private route: ActivatedRoute,
+        private router: Router,) {
     }
 
     ngOnInit() {
@@ -43,13 +42,23 @@ export class QuizDetailComponent implements OnInit {
         this.quizService
             .save(this.quiz)
             .then(quiz => {
-                this.quiz = quiz; // saved hero, w/ id if new
-                this.goBack();
+                this.quiz = quiz; 
+                this.router.navigate(['/quizes']);
             })
-            .catch(error => this.error = error); // TODO: Display error message
+            .catch(error => this.error = error); 
     }
 
     goBack() {
         window.history.back();
+    }
+
+    addQuestion(quiz: Quiz) {
+      this.router.navigate(['/new-question', quiz._id]);
+    }
+
+     onSelect(question: Question, answer: Answer) {
+      question.answers.forEach((x) => { 
+          if (x._id !== answer._id) x.correct = false;      
+    });
     }
 }

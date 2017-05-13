@@ -10,6 +10,8 @@ import { QuizesComponent }      from './components/quizes/quizes.component';
 import { DashboardComponent }   from './components/dashboard/dashboard.component';
 import { QuizDetailComponent }  from './components/quizDetail/quiz-detail.component';
 import { NewQuestionComponent }  from './components/new-question/new-question.component';
+import { TakeQuizComponent }  from './components/takeQuiz/takequiz.component';
+import { ChooseQuizComponent }  from './components/choosequiz/choosequiz.component';
 
 import { QuizService }  from './services/quiz.service';
 
@@ -25,7 +27,9 @@ import { QuizService }  from './services/quiz.service';
     QuizesComponent,
     DashboardComponent,
     QuizDetailComponent,
-    NewQuestionComponent
+    NewQuestionComponent,
+    TakeQuizComponent,
+    ChooseQuizComponent
   ],
   providers: [
     QuizService

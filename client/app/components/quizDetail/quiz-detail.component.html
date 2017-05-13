@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-
+  
   <div class="form-group">
     <label class="col-sm-2 control-label">Name: </label>
     <div class="col-sm-10">
@@ -17,15 +17,23 @@
     </div>
   </div>
 
-  <div class="form-group" *ngIf="quiz.questions && quiz.questions.length > 0">
+  <div *ngIf="quiz.questions">
     <label class="col-sm-2 control-label">Questions: </label>
+    <button class="btn btn-primary" (click)="addQuestion(quiz)">Add question</button>
+  </div>
+
+  <div class="form-group" *ngIf="quiz.questions && quiz.questions.length > 0">
     <div class="col-sm-10 questions">
       <div class="question" *ngFor="let question of quiz.questions; let q = index;">
-        <div>{{ question.text }}</div>
+        <span>Question: </span>
+        <input class="form-control" [(ngModel)]="question.text" placeholder="name" />
         <div>Answers:</div>
-        <div *ngFor="let answer of question.answers; let i = index;">
-          <span>{{ i + 1 }}: {{ answer.text }}</span>
-          <span *ngIf="answer.correct"> (correct)</span>
+        <div class="answer" *ngFor="let answer of question.answers; let i = index;">
+          <span>{{ i + 1 }}: </span>
+           <input [(ngModel)]="answer.text" placeholder="name" />
+            <input type="checkbox" [(ngModel)]="answer.correct" (change)="onSelect(question, answer);"/>
+            <span *ngIf="answer.correct"> (correct)</span>
+          
         </div>
       </div>
     </div>
