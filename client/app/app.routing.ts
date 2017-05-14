@@ -6,6 +6,7 @@ import { QuizDetailComponent }  from './components/quizDetail/quiz-detail.compon
 import { NewQuestionComponent }  from './components/new-question/new-question.component';
 import { TakeQuizComponent }  from './components/takeQuiz/takequiz.component';
 import { ChooseQuizComponent }  from './components/choosequiz/choosequiz.component';
+import { ToplistComponent }  from './components/toplist/toplist.component';
 
 const appRoutes: Routes = [
   {
@@ -29,13 +30,17 @@ const appRoutes: Routes = [
     path: 'quizes',
     component: QuizesComponent
   },
-  { 
+  {
     path: 'takequiz/:id',
-    component: TakeQuizComponent, 
+    component: TakeQuizComponent,
   },
-  { 
+  {
     path: 'choosequiz',
-    component: ChooseQuizComponent, 
+    component: ChooseQuizComponent,
+  },
+   {
+    path: 'toplist',
+    component: ToplistComponent
   },
 ];
 
