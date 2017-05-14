@@ -7,16 +7,19 @@ h3 {
 }
 .module {
     padding: 20px;
+    font-size: 24px;
     text-align: center;
     color: #eee;
     max-height: 120px;
     min-width: 120px;
-    background-color: orangered;
+    outline: none;
+    background-color:  #4CAF50;
+    border: none;
     border-radius: 2px;
 }
 
 .module:hover {
-    background-color: darkred;
+    background-color: #3e8e41;
     cursor: pointer;
     color: white;
 }
