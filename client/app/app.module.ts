@@ -12,6 +12,7 @@ import { QuizDetailComponent }  from './components/quizDetail/quiz-detail.compon
 import { NewQuestionComponent }  from './components/new-question/new-question.component';
 import { TakeQuizComponent }  from './components/takeQuiz/takequiz.component';
 import { ChooseQuizComponent }  from './components/choosequiz/choosequiz.component';
+import { ShufflePipe } from './pipe/shuffle';
 
 import { QuizService }  from './services/quiz.service';
 
@@ -29,7 +30,8 @@ import { QuizService }  from './services/quiz.service';
     QuizDetailComponent,
     NewQuestionComponent,
     TakeQuizComponent,
-    ChooseQuizComponent
+    ChooseQuizComponent,
+    ShufflePipe
   ],
   providers: [
     QuizService

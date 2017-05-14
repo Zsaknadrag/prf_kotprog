@@ -3,10 +3,10 @@
   <div>
        <label>Questions </label>
        
-        <ul *ngFor="let question of quiz.questions ">
+        <ul *ngFor="let question of quiz.questions | shuffle">
             <label>{{question.text}} </label>
             <ul>
-                <li *ngFor="let answer of question.answers; let i = index;">
+                <li *ngFor="let answer of question.answers | shuffle">
                         <label class = "answer" >{{answer.text}}</label>
                         <input type="checkbox" [(ngModel)]="answer.selected" placeholder="selected" (change)="onSelect(question, answer);" />
                 </li>

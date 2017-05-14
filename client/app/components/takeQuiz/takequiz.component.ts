@@ -4,6 +4,8 @@ import { Question } from '../../models/question';
 import { Answer } from '../../models/answer';
 import { ActivatedRoute, Params } from '@angular/router';
 import {QuizService} from "../../services/quiz.service";
+import { ShufflePipe } from '../../pipe/shuffle';
+
 import { Router } from '@angular/router';
 @Component({
     selector: 'my-takequiz',
