@@ -58,7 +58,7 @@ export class QuizDetailComponent implements OnInit {
 
      onSelect(question: Question, answer: Answer) {
       question.answers.forEach((x) => { 
-          if (x._id !== answer._id) x.correct = false;      
-    });
+          if (x._id !== answer._id) x.correct = false;
+        });
     }
 }
