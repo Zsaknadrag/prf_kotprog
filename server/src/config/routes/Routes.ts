@@ -8,9 +8,11 @@ var app = express();
 
 class Routes {
 
+    constructor(private passport) { }
+
     get routes() {
         app.use("/", new QuizRoutes().routes);
-        app.use("/", new UserRoutes().routes);
+        app.use("/", new UserRoutes(this.passport).routes);
         return app;
     }
 }

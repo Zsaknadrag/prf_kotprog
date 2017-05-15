@@ -3,6 +3,12 @@
 import express = require('express');
 import BaseRoutes = require("./config/routes/Routes");
 import bodyParser = require("body-parser");
+import * as passport from 'passport';
+import * as LocalStrategy from 'passport-local';
+import * as expressSession from 'express-session';
+import UserBusiness = require("./app/business/UserBusiness");
+import IBaseController = require("./controllers/BaseController");
+import IUserModel = require("./app/model/interfaces/IUserModel");
 
 import path = require('path');
 var port: number = process.env.PORT || 3000;
@@ -19,8 +25,31 @@ app.use('/libs', express.static(path.resolve(__dirname, '../client/libs')));
 app.use(express.static(path.resolve(__dirname, '../client')));
 app.use(express.static(path.resolve(__dirname, '../../node_modules')));
 
+passport.serializeUser((user, done) => {
+    done(null, user.name);
+});
+
+passport.deserializeUser((user, done) => {
+    done(null, user);
+});
+
+passport.use('login', new LocalStrategy.Strategy((username, password, done) => {
+  var userBusiness = new UserBusiness();
+  userBusiness.findByName(username, (error, result) => {
+      if (result.password === password) {
+        return done(null, result.name);
+      } else {
+        return done('ERROR', result.name);
+      }
+  });
+}));
+
+app.use(expressSession({secret: 'thegreatandsecretshow'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(bodyParser.json());
-app.use('/api', new BaseRoutes().routes);
+app.use('/api', new BaseRoutes(passport).routes);
 
 var renderIndex = (req: express.Request, res: express.Response) => {
     res.sendFile(path.resolve(__dirname, '../client/index.html'));

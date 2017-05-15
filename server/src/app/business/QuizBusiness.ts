@@ -1,6 +1,6 @@
 import QuizRepository = require("./../repository/QuizRepository");
 import IQuizBusiness = require("./interfaces/QuizBusiness");
-import IQuizModel = require("./../model/interfaces/QuizModel");
+import IQuizModel = require("./../model/interfaces/IQuizModel");
 import QuizModel = require("./../model/QuizModel");
 
 class QuizBusiness implements IQuizBusiness {

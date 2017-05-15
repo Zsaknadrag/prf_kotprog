@@ -1,5 +1,5 @@
-import IQuizModel = require('./interfaces/QuizModel');
-import IQuestionModel = require('./interfaces/QuestionModel');
+import IQuizModel = require('./interfaces/IQuizModel');
+import IQuestionModel = require('./interfaces/IQuestionModel');
 
 class QuizModel {
 
